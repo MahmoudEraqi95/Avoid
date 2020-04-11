@@ -1,0 +1,29 @@
+spring:
+  jmx:
+    enabled: false
+  profiles.active: dev
+  application:
+    name: questionnaire-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/questionnaire
+    username: root
+    password: root
+
+  jpa:
+    hibernate.ddl-auto: none
+#    generate-ddl: true
+    show-sql: true
+    properties:
+      javax:
+        persistence.sharedCache.mode: ALL
+      hibernate:
+        cache.use_second_level_cache: false
+        cache.use_query_cache: false
+        cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+server:
+  port: 8085
